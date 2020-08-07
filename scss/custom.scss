@@ -1,0 +1,77 @@
+// Site colors
+$blackish: rgb(26,26,26); // 10%
+$whiteish: rgb(229,229,229); // 90%
+$grayish: rgb(178,178,178); // 75%
+
+$teal_dark: rgb(31,90,86);
+$teal_light: rgb(187,254,250);
+$artifact: rgb(80,26,131);
+$archeo: rgb(184,49,47);
+$ancient: rgb(243,121,52);
+$relic: rgb(198,151,97);
+$morality: rgb(37,169,132);
+
+$body-bg: $blackish;
+$body-color: $whiteish;
+
+$theme-colors: (
+  'ui': $grayish,
+  'primary': $teal_light,
+  'secondary': $teal_dark,
+  'relic': $relic,
+  'artifact': $artifact,
+  'archeo': $archeo,
+  'ancient': $ancient,
+  'morality': $morality,
+);
+
+@import '../bootstrap/scss/bootstrap';
+
+body {
+  font-weight: 300;
+}
+
+h1 {
+  font-family: Orbitron, "Open Sans", sans-serif;
+}
+
+.title {
+  padding-bottom: 10px;
+}
+
+.subtitle {
+  //font-family: Orbitron, "Open Sans", sans-serif;
+  color: $grayish;
+}
+
+#uploader {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+code {
+  color: $relic;
+}
+
+input {
+  background-color: $teal_dark;
+  width: 220px;
+}
+
+.table td {
+  padding: 5px;
+  border-top: 1px solid $grayish;
+  border-bottom: 1px solid $grayish;
+}
+
+.status {
+  font-size: 1.5rem;
+}
+
+.yep {
+  color: $morality;
+}
+
+.nope {
+  color: $archeo;
+}

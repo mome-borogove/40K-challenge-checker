@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css"
+          href="css/custom.css">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Orbitron&display=swap">
+    <link rel="stylesheet" type="text/css"
+          href="css/fa.min.css">
+
+
+    <!-- Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-29492860-9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-29492860-9');
+    </script>
+
+    <title>40K Inquisitor Seasonal Challenge Checker</title>
+  </head>
+  <body>
+    <div class="container" id="app">
+      <div class="row">
+        <h1>40K: Inquisitor Seasonal Challenge Checker</h1>
+        <p><span class="subtitle">
+          By <a href="https://mome-borogove.github.io/">Mome Borogove</a>.
+          For questions, visit the 
+            <a href="https://discord.gg/inquisitor40k">
+            40K: Inquisitor Discord</a>.
+          For bugs and feedback, submit an issue on 
+            <a href="https://github.com/mome-borogove/40K-challenge-checker/issues">
+            Github <i class="fab fa-github"></i>
+            </a>.
+        </p>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div id="uploader">
+            <p>Whenever you run 40K: Inquisitor, it records a log file, usually in <code>"Documents/NeocoreGames/Warhammer Martyr/log"</code>.<br>
+               Upload the file, and this site will search for information about your seasonal challenge progress.
+            </p>
+            <input type="file"
+                   id="logfile"
+                   @change="on_file_change($event);">
+          </div>
+          <table class="table">
+            <tr v-for="challenge_pair in challenge_list">
+              <td v-if="!logfile_data || logfile_data.length<=0">
+                <i class="status far fa-question-circle"></i>
+              </td><td v-else-if="has_challenge(challenge_pair[0])">
+                <i class="status yep fas fa-check-circle"></i>
+              </td><td v-else>
+                <i class="status nope fas fa-times-circle"></i>
+              </td>
+              <td>{{challenge_pair[1]}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
